@@ -1,6 +1,6 @@
 +++
 authors = ["Lone Coder"]
-title = "Markdown Syntax Nirmal Guide"
+title = "Markdown Syntax  Guide"
 date = "2023-07-13"
 description = "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags = [
