@@ -1,4 +1,3 @@
-
 ---
 title: "Your Post Title"
 date: 2023-11-21T10:00:00+00:00
