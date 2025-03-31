@@ -1,29 +1,26 @@
-name: Hugo page
-
+name: Build Hugo Site
 on:
   push:
-    branches: [main]
-
+    branches: [ main ]  # Runs on every push to main branch
 jobs:
   deploy:
-    runs-on: windows-latest
-    
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
         with:
-          submodules: recursive
+          submodules: true  # Required if using a theme as a submodule
 
-      - name: Setup Hugo
+      - name: Install Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.145.0' # Update to your version
-          extended: true
+          hugo-version: "latest"  # Uses the latest stable Hugo
 
-      - name: Build
-        run: hugo --minify
+      - name: Build site
+        run: hugo --minify  # Generates static files in /docs
 
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+          publish_dir: ./docs  # Your Hugo output directory
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # Auto-generated auth
