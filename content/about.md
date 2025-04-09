@@ -33,7 +33,7 @@ Cybersecurity professional with expertise in Elasticsearch SIEM, Logpoint SIEM, 
 
 ## 💼 Experience  
 
-### **Security Engineer - SIEM/SOAR**  
+### **SECURITY ENGINEER**  
 *University of Winchester, UK* | Apr 2024 - Present  
 - Investigate and triage 100+ monthly alerts in Logpoint SIEM and Microsoft Defender XDR, improving threat detection and response
 accuracy.  
@@ -47,14 +47,14 @@ accuracy.
 - Authored detailed documentation and monthly reports to track improvements in threat coverage and reduce organizational risk.
 
 
-### **SOC Analyst**  
+### **SOC ANALYST**  
 *CyberTalos, India* | Mar 2022 - Aug 2023  
 - Proactively monitored and analysed security logs for clients, leveraging Microsoft Defender, ELK (SIEM), Grafana, and Zabbix to identify and mitigate potential threats. Achieved a 25% reduction in attacks on clients and 20% improvement in overall network infrastructure.
 - Collaborated on incident response efforts, demonstrating a keen understanding of the business and efficiently containing security incidents within the Virtual Private Cloud (VPC) environment.
 - Led successful migration initiatives, transitioning clients from on-premises infrastructure to CyberTalos’ cloud services. Resulted in a significant 50% cost reduction for infrastructure and security maintenance.
 - Provided valuable insights into tuning and optimising Security Information and Event Management (SIEM) rules tailored to VPC environments. Contributed to a 15% improvement in the efficiency of client's security operations.
 
-### **System Admin**  
+### **IT SYSTEM ADMINISTRATOR**  
 *ECS Corporation, India* | Oct 2021 - Mar 2022  
 - Offering 1st and 2nd level IT support to a substantial customer base of 200+ clients, troubleshooting and resolving a wide range of technical problems, including Desktop PC, Server, Network, hardware, software, and application issues.
 - Demonstrated expertise Fortinet FortiGate and SonicWALL firewalls to ensure secure network operations, crafting comprehensive security policies, DOS policies, and managed access policies to safeguard against cyber threats and maintain network integrity.
