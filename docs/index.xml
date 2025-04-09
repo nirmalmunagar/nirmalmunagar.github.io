@@ -135,14 +135,14 @@ Bob->>Alice: Hi Alice
  &lt;/a>
 &lt;/h2>
 &lt;p>&lt;strong>Security:&lt;/strong>&lt;br>
-&lt;code>Elasticsearch SIEM&lt;/code> &lt;code>LogPoint SIEM&lt;/code> &lt;code>Defender&lt;/code> &lt;code>EDR&lt;/code> &lt;code>Wireshark&lt;/code> &lt;code>PCAP Analysis&lt;/code> &lt;code>VAPT&lt;/code> &lt;code>BloodHound&lt;/code> &lt;code>KQL&lt;/code>&lt;br>
+&lt;code>Elasticsearch SIEM&lt;/code> &lt;code>LogPoint SIEM&lt;/code> &lt;code>Defender&lt;/code> &lt;code>EDR&lt;/code> &lt;code>Wireshark&lt;/code> &lt;code>PCAP Analysis&lt;/code> &lt;code>Vulnerability Assessment and Penetration Testing(VAPT)&lt;/code> &lt;code>BloodHound&lt;/code> &lt;code>KQL Basic&lt;/code> &lt;code>Network Monitoring &amp;amp; Analysis&lt;/code>
 &lt;strong>Scripting:&lt;/strong>&lt;br>
-&lt;code>Python&lt;/code> &lt;code>Bash&lt;/code>&lt;br>
+&lt;code>Python Basic&lt;/code> &lt;code>Bash&lt;/code>&lt;br>
 &lt;strong>Network:&lt;/strong>&lt;br>
-&lt;code>TCP/IP&lt;/code> &lt;code>Fortigate Firewall&lt;/code> &lt;code>IDS/IPS&lt;/code> &lt;code>Cisco&lt;/code>&lt;br>
+&lt;code>TCP/IP&lt;/code> &lt;code>OSI&lt;/code> &lt;code>HTTP&lt;/code> &lt;code>SSH&lt;/code> &lt;code>DHCP&lt;/code> &lt;code>Fortigate Firewall&lt;/code> &lt;code>IDS/IPS&lt;/code> &lt;code>Cisco Basic&lt;/code>&lt;br>
 &lt;strong>Cloud:&lt;/strong>&lt;br>
 &lt;code>AWS&lt;/code> &lt;code>Azure&lt;/code> &lt;code>Entra ID&lt;/code> &lt;code>Microsoft 365&lt;/code>&lt;br>
 &lt;strong>System Administration:&lt;/strong>&lt;br>
-&lt;code>Windows IIS&lt;/code> &lt;code>Active Directory&lt;/code> &lt;code>VMWare&lt;/code> &lt;code>Ubuntu&lt;/code>&lt;br>
+&lt;code>Windows IIS&lt;/code> &lt;code>MSSQL Server&lt;/code> &lt;code>Exchange Online&lt;/code> &lt;code>Active Directory(AD)&lt;/code> &lt;code>VMWare&lt;/code> &lt;code>Ubuntu&lt;/code>&lt;br>
 &lt;strong>Compliance:&lt;/strong>&lt;br>
-&lt;code>ISO 27001&lt;/code> &lt;code>NIST&lt;/code> &lt;code>PCI DSS&lt;/code>&lt;/p></description></item><item><title>Contact</title><link>https://nirmalunagar.com/contact/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://nirmalunagar.com/contact/</guid><description>&lt;p>Follow me, @nirmal.&lt;/p></description></item><item><title>Projects</title><link>https://nirmalunagar.com/projects/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://nirmalunagar.com/projects/</guid><description>&lt;p>Nothing to see here&amp;hellip; Move along!&lt;/p></description></item></channel></rss>
+&lt;code>ISO 27001&lt;/code> &lt;code>NIST&lt;/code> &lt;code>PCI DSS&lt;/code> &lt;code>Cyber Essential&lt;/code>&lt;/p></description></item><item><title>Contact</title><link>https://nirmalunagar.com/contact/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://nirmalunagar.com/contact/</guid><description>&lt;p>Follow me, @nirmal.&lt;/p></description></item><item><title>Projects</title><link>https://nirmalunagar.com/projects/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://nirmalunagar.com/projects/</guid><description>&lt;p>Nothing to see here&amp;hellip; Move along!&lt;/p></description></item></channel></rss>
