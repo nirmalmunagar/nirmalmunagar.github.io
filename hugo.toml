@@ -50,8 +50,7 @@ maxSeeAlsoItems = 5
 customCSS = []
 
 
-[params]
-  customCSS = ["css/custom.css"]  # Add this line
+
 # Custom SCSS, file path is relative to Hugo's asset folder (default: {your project root}/assets)
 customSCSS = []
 
