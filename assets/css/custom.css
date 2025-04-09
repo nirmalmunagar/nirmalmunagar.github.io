@@ -1,1 +1,5 @@
-
+/* Override header title size */
+.site-title {
+  font-size: 2.5rem !important;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2); /* Optional: Add shadow */
+}
