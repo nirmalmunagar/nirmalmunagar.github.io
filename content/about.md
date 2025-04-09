@@ -78,4 +78,4 @@ Cybersecurity professional with expertise in Elasticsearch SIEM, Logpoint SIEM, 
 
 ---
 
-> *[📄 Download PDF Resume](/files/resume.pdf)*
+> *[📄 Download PDF Resume](/files/Nirmal_Resume.pdf)*
