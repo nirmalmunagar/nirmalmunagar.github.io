@@ -17,17 +17,17 @@ Cybersecurity professional with expertise in Elasticsearch SIEM, Logpoint SIEM, 
 
 ## 🔧 Technical Skills  
 **Security:**  
-`Elasticsearch SIEM` `LogPoint SIEM` `Defender` `EDR` `Wireshark` `PCAP Analysis` `VAPT` `BloodHound` `KQL`  
+`Elasticsearch SIEM` `LogPoint SIEM` `Defender` `EDR` `Wireshark` `PCAP Analysis` `Vulnerability Assessment and Penetration Testing(VAPT)` `BloodHound` `KQL Basic` `Network Monitoring & Analysis`
 **Scripting:**  
-`Python` `Bash`  
+`Python Basic` `Bash`  
 **Network:**  
-`TCP/IP` `Fortigate Firewall` `IDS/IPS` `Cisco`  
+`TCP/IP` `OSI` `HTTP` `SSH` `DHCP` `Fortigate Firewall` `IDS/IPS` `Cisco Basic`  
 **Cloud:**  
 `AWS` `Azure` `Entra ID` `Microsoft 365`  
 **System Administration:**  
-`Windows IIS` `Active Directory` `VMWare` `Ubuntu`  
+`Windows IIS` `MSSQL Server` `Exchange Online` `Active Directory(AD)` `VMWare` `Ubuntu`  
 **Compliance:**  
-`ISO 27001` `NIST` `PCI DSS`
+`ISO 27001` `NIST` `PCI DSS` `Cyber Essential`
 
 ---
 
@@ -37,14 +37,14 @@ Cybersecurity professional with expertise in Elasticsearch SIEM, Logpoint SIEM, 
 *University of Winchester, UK* | Apr 2024 - Present  
 - Investigate and triage 100+ monthly alerts in Logpoint SIEM and Microsoft Defender XDR, improving threat detection and response
 accuracy.  
-- Reduced false positives by 30% and improved response time by 40% by fine-tuning SIEM rules and developing 15+ SOAR playbooks.  
-- Handled weekly phishing incidents, performing root cause analysis and correlating data across email, SIEM, and endpoint logs.  
-- Uploaded and enriched 200+ IOCs in OpenCTI, identifying and tracking malicious IPs, domains, and file hashes.
-- Conducted monthly BloodHound AD reviews, helping remediate 10+ privilege escalation paths and reduce attack surface.
-- Ran bi-weekly Nessus scans and coordinated patching to close 50+ vulnerabilities, enhancing internal and external security.
-- Collaborated with IT/network teams to block threats, update firewall policies, and enforce mitigation steps during active incidents.
-- Created use cases mapped to the MITRE ATT&CK framework and automated agent deployment across 100+ systems using Ansible.
-- Authored detailed documentation and monthly reports to track improvements in threat coverage and reduce organizational risk.
+- Reduced **false positives by 30%** and improved **response time by 40%** by fine-tuning SIEM rules and developing **15+ SOAR playbooks.**  
+- Handled weekly phishing incidents, performing **root cause analysis(RCA)** and correlating data across email, SIEM, and endpoint logs.  
+- Uploaded and enriched **200+ IOCs in OpenCTI**, identifying and tracking malicious IPs, domains, and file hashes.
+- Conducted monthly **BloodHound AD** reviews, helping **remediate 10+** privilege escalation paths and reduce attack surface.
+- Ran bi-weekly **Tenable scans** and coordinated patching to **close 50+ vulnerabilities**, enhancing internal and external security.
+- Collaborated with **IT/network teams** to block threats, update firewall policies, and enforce mitigation steps during active incidents.
+- Created use cases mapped to the **MITRE ATT&CK framework** and automated agent deployment across **100+ systems using Ansible**.
+- Authored detailed documentation and **monthly reports** to track improvements in threat coverage and reduce organizational risk.
 
 
 ### **SOC ANALYST**  
@@ -69,13 +69,13 @@ accuracy.
 ## 🚀 Projects  
 
 ### **IT Security Operations Lab (ELK + GNS3)**  
-- Simulated enterprise network with 3 security use cases  
-- Detected DOS attacks (Fortigate), malware (ELK), directory traversal  
+- Designed a small enterprise network to monitor 24x7 IT infrastructure and practice threat detection. Utilised GNS3 tool, ELK Stack, Ubuntu server to simulate small enterprise network.
+- Simulated 3 use cases: DOS attack prevented with Fortigate firewall, malware detected with ELK SIEM and endpoint protection, directory traversal attack detected on Apache using ELK SIEM.
+- Strengthened network security and incident response capabilities, enhancing overall cybersecurity posture.
 
 ### **Active Directory Automation**  
-- Automated creation of 1000 users via PowerShell scripting  
-- Configured Windows Server 2019 domain controller  
-
+- Configured Windows Server 2019 as Domain Controller(DC) for nmunagar.com, implemented NAT services and DHCP for seamless communication in a VirtualBox Environment.
+- Created user accounts, groups, and organisational units for streamlined access control. Established an admin-privileged user and automated the creation of 1000 users using PowerShell scripting and Successfully integrated Windows client machines with the AD domain.
 ---
 
 ## 🎓 Education  
