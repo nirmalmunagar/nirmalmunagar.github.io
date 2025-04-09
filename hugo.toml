@@ -27,7 +27,7 @@ author = "Nirmal"
 # license = '<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA-4.0</a>'
 description = "Nirmal's personal website"
 keywords = "blog,developer,personal"
-info = ["Security Analyst"]
+info = ["Security Engineer"]
 avatarURL = "images/profil.png"
 #gravatar = "john.doe@example.com"
 dateFormat = "January 2, 2006"
