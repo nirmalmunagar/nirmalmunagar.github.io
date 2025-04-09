@@ -53,6 +53,11 @@ Cybersecurity professional with expertise in Elasticsearch SIEM, Logpoint SIEM, 
 
 ---
 
+---
+## 📜 Certifications  
+`CompTIA Security+` `eJPTv2` `AZ-900` `AWS Cloud Foundations` `SC-200 (In Progress)`
+---
+
 ## 🚀 Projects  
 
 ### **IT Security Operations Lab (ELK + GNS3)**  
@@ -65,11 +70,6 @@ Cybersecurity professional with expertise in Elasticsearch SIEM, Logpoint SIEM, 
 
 ---
 
-## 📜 Certifications  
-`CompTIA Security+` `eJPTv2` `AZ-900` `AWS Cloud Foundations` `SC-200 (In Progress)`
-
----
-
 ## 🎓 Education  
 **MSc Computer Forensics & Cybersecurity**  
 *University of Greenwich, UK* | 2022-2023  
@@ -78,4 +78,4 @@ Cybersecurity professional with expertise in Elasticsearch SIEM, Logpoint SIEM, 
 
 ---
 
-> *Built with [Hugo Coder](https://github.com/luizdepra/hugo-coder) - [📄 Download PDF Resume](/files/resume.pdf)*
+> *[📄 Download PDF Resume](/files/resume.pdf)*
