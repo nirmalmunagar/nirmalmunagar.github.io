@@ -7,7 +7,7 @@ enableEmoji = true
 publishDir = "docs"
 
 [pagination]
-pagerSize = 6
+pagerSize = 10
 
 [services]
 [services.disqus]
