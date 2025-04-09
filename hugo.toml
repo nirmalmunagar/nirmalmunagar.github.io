@@ -48,8 +48,15 @@ hideColorSchemeToggle = false
 maxSeeAlsoItems = 5
 # Custom CSS
 customCSS = []
+
+
+[params]
+  customCSS = ["css/custom.css"]  # Add this line
 # Custom SCSS, file path is relative to Hugo's asset folder (default: {your project root}/assets)
 customSCSS = []
+
+
+
 
 # Custom JS
 customJS = []
