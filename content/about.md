@@ -1,10 +1,10 @@
-+++
+---
 title: "About"
 description: "Huge, the world's fastest framework for building websites"
 date: 2019-02-28
 aliases: ["about us", "about-huge", "contact"]
 author: "Huge Authors"
-+++
+---
 
 As a cybersecurity graduate with a master's degree in computer forensics and cybersecurity from the University of Greenwich, I have developed technical expertise in web application security testing, firewall management, cloud virtualization, and server administration. I also acquired multiple certifications in ethical hacking, Python programming, and Cisco networking, demonstrating my commitment to continuous learning and skill enhancement.
 
