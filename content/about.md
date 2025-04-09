@@ -53,7 +53,6 @@ Cybersecurity professional with expertise in Elasticsearch SIEM, Logpoint SIEM, 
 
 ---
 
----
 ## 📜 Certifications  
 `CompTIA Security+` `eJPTv2` `AZ-900` `AWS Cloud Foundations` `SC-200 (In Progress)`
 ---
