@@ -1,12 +1,56 @@
 ---
-title: "My New Post"
-date: 2023-11-21T10:00:00+00:00
-draft: false
-tags: ["tutorial"]
+title: "Get Anyone's Location Using Seeker"
+date: 2025-04-09
+categories: [cybersecurity]
+tags: [hacking, seeker, location]
 ---
-Content goes here... hhere
-sdsd
 
+## Introduction
 
-thsisi upadasd
-final version
+In this tutorial, I will guide you on how to use the Seeker tool to obtain someone's location. Seeker is a tool designed to send a link to the victim, and once clicked, it grabs the victim's geolocation and IP address.
+
+## Prerequisites
+
+Before you begin, you need:
+
+- **Seeker** installed on your system
+- **Python 3** installed
+
+### Installation
+
+1. Clone the Seeker repository from GitHub:
+
+    ```bash
+    git clone https://github.com/thelinuxchoice/Seeker.git
+    cd Seeker
+    ```
+
+2. Install required dependencies:
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+## Usage
+
+Once Seeker is installed, follow these steps to send a location-tracking link:
+
+1. Run Seeker:
+
+    ```bash
+    python seeker.py
+    ```
+
+2. Choose the **location** option:
+
+    ```bash
+    Choose the type of link you want to generate (e.g., Facebook, WhatsApp, etc.).
+    ```
+
+3. After generating the link, send it to the victim.
+
+4. Once the victim clicks the link, their location and IP address will be displayed.
+
+## Conclusion
+
+This tutorial provided a step-by-step process to use Seeker for location tracking. Remember to always use such tools ethically and within the law.
