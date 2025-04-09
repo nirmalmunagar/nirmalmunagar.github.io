@@ -56,7 +56,7 @@ accuracy.
 
 ### **System Admin**  
 *ECS Corporation, India* | Oct 2021 - Mar 2022  
--Offering 1st and 2nd level IT support to a substantial customer base of 200+ clients, troubleshooting and resolving a wide range of technical problems, including Desktop PC, Server, Network, hardware, software, and application issues.
+- Offering 1st and 2nd level IT support to a substantial customer base of 200+ clients, troubleshooting and resolving a wide range of technical problems, including Desktop PC, Server, Network, hardware, software, and application issues.
 - Demonstrated expertise Fortinet FortiGate and SonicWALL firewalls to ensure secure network operations, crafting comprehensive security policies, DOS policies, and managed access policies to safeguard against cyber threats and maintain network integrity.
 - Managed Citrix Xen and VMware ESXi virtualization environments, utilising PRTG, Nagios, and Cacti to gain comprehensive network visibility and maintain optimal performance, resulting in 50% cost reduction of client security expenses.
 ---
