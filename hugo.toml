@@ -146,39 +146,33 @@ author = "authors"
 name = "Github"
 icon = "fa-brands fa-github fa-2x"
 weight = 1
-url = "https://github.com/johndoe/"
+url = "https://github.com/nirmalmunagar"
 
-[[params.social]]
-name = "Gitlab"
-icon = "fa-brands fa-gitlab fa-2x"
-weight = 2
-url = "https://gitlab.com/johndoe/"
 
-[[params.social]]
-name = "Twitter"
-icon = "fa-brands fa-x-twitter fa-2x"
-weight = 3
-url = "https://twitter.com/johndoe/"
+#[[params.social]]
+#name = "Twitter"
+#icon = "fa-brands fa-x-twitter fa-2x"
+#weight = 3
+#url = "https://twitter.com/johndoe/"
 
 [[params.social]]
 name = "LinkedIn"
 icon = "fa-brands fa-linkedin fa-2x"
 weight = 4
-url = "https://www.linkedin.com/in/johndoe/"
+url = "https://www.linkedin.com/in/nirmalunagar/"
+
+#[[params.social]]
+#name = "Medium"
+#icon = "fa-brands fa-medium fa-2x"
+#weight = 5
+#url = "https://medium.com/@johndoe"
 
 [[params.social]]
-name = "Medium"
-icon = "fa-brands fa-medium fa-2x"
+name = "Email"
+icon = "fa-solid fa-envelope fa-2x"
 weight = 5
-url = "https://medium.com/@johndoe"
+url = "mailto:yourname@example.com"
 
-[[params.social]]
-name = "RSS"
-icon = "fa-solid fa-rss fa-2x"
-weight = 6
-url = "https://myhugosite.com/index.xml"
-rel = "alternate"
-type = "application/rss+xml"
 
 #[languages.en]
 #languageName = ":uk:"
