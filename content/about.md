@@ -1,5 +1,4 @@
 ---
-title: "About"
 url: "/about/"
 type: "page"
 description: "Huge, the world's fastest framework for building websites"
