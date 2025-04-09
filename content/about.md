@@ -9,7 +9,57 @@ author: "Huge Authors"
 ---
 
 
-As a cybersecurity graduate with a master's degree in computer forensics and cybersecurity from the University of Greenwich, I have developed technical expertise in web application security testing, firewall management, cloud virtualization, and server administration. I also acquired multiple certifications in ethical hacking, Python programming, and Cisco networking, demonstrating my commitment to continuous learning and skill enhancement.
 
-I have gained hands-on experience in implementing and working with various network and infrastructure monitoring tools, such as Zabbix, Graphana, Prometheus, and Elasticsearch, as a security analyst at CyberTalos. I have also successfully applied my knowledge of AWS services, such as WAF, CloudWatch, SQS, Lambda, and S3, to create and secure cloud-based applications as a cloud security associate at Virtually Testing Foundation. With my passion for cybersecurity and a collaborative mindset, my aim to secure a challenging role as a cybersecurity professional, where I can contribute to the development of effective security solutions and advance my career goals.
+# Nirmal Unagar  
+**Security Engineer**  
+📍 Pune, India | 📧 email@example.com  
+[🔗 LinkedIn](https://linkedin.com) | [💻 GitHub](https://github.com)
 
+---
+
+## 🛠️ Technical Skills  
+**Security Tools:**  
+`Metasploit` `Wireshark` `Nessus` `Burp Suite`  
+
+**Programming:**  
+`Python` `Bash` `PowerShell`  
+
+**Cloud:**  
+`AWS` `Azure` `Docker`
+
+---
+
+## 💼 Experience  
+
+### **Senior Security Engineer**  
+*ABC Tech Corp* | 2022-Present  
+- Conducted 50+ vulnerability assessments for enterprise clients  
+- Reduced incident response time by 40% through SIEM optimization  
+- Led PCI-DSS compliance audits  
+
+### **Security Analyst**  
+*XYZ Security* | 2019-2021  
+- Managed firewall rules for 200+ enterprise devices  
+- Automated threat detection using Python scripts  
+
+---
+
+## 🎓 Education  
+**M.Tech in Cybersecurity**  
+*Indian Institute of Technology* | 2017-2019  
+
+**B.Tech in Computer Science**  
+*University of Pune* | 2013-2017  
+
+---
+
+## 🚀 Projects  
+
+### **SecureAuth Framework**  
+- Built MFA solution with TOTP/biometric authentication  
+- Reduced auth breaches by 62%  
+- *Technologies: Python, Django, Redis*  
+
+### **Network Monitor Tool**  
+- Real-time traffic analysis system  
+- *Technologies: Go, PacketCapture, Grafana*  
