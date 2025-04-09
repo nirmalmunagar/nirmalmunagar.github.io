@@ -1,18 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Shortcodes on Nirmal</title><link>https://nirmalunagar.com/tags/shortcodes/</link><description>Recent content in Shortcodes on Nirmal</description><generator>Hugo</generator><language>en</language><lastBuildDate>Wed, 12 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://nirmalunagar.com/tags/shortcodes/index.xml" rel="self" type="application/rss+xml"/><item><title>Rich Content</title><link>https://nirmalunagar.com/posts/rich-content/</link><pubDate>Wed, 12 Jul 2023 00:00:00 +0000</pubDate><guid>https://nirmalunagar.com/posts/rich-content/</guid><description>&lt;p>Hugo ships with several &lt;a href="https://gohugo.io/content-management/shortcodes/#use-hugos-built-in-shortcodes" class="external-link" target="_blank" rel="noopener">Built-in Shortcodes&lt;/a> for rich content, along with a &lt;a href="https://gohugo.io/about/hugo-and-gdpr/" class="external-link" target="_blank" rel="noopener">Privacy Config&lt;/a> and a set of Simple Shortcodes that enable static and no-JS versions of various social media embeds.&lt;/p>
-&lt;h2 id="">
- 
- &lt;a class="heading-link" href="#">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2></description></item><item><title>More Rich Content</title><link>https://nirmalunagar.com/posts/more-rich-content/</link><pubDate>Tue, 11 Jul 2023 00:00:00 +0000</pubDate><guid>https://nirmalunagar.com/posts/more-rich-content/</guid><description>&lt;p>Hugo Coder provides some Custom Shortcodes.&lt;/p>
-&lt;h2 id="">
- 
- &lt;a class="heading-link" href="#">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2></description></item><item><title>HTML and CSS only tabs</title><link>https://nirmalunagar.com/posts/html-and-css-only-tabs/</link><pubDate>Sun, 09 Jul 2023 00:00:00 +0000</pubDate><guid>https://nirmalunagar.com/posts/html-and-css-only-tabs/</guid><description>&lt;h2 id="shortcodes">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Shortcodes on Nirmal</title><link>https://nirmalunagar.com/tags/shortcodes/</link><description>Recent content in Shortcodes on Nirmal</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sun, 09 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://nirmalunagar.com/tags/shortcodes/index.xml" rel="self" type="application/rss+xml"/><item><title>HTML and CSS only tabs</title><link>https://nirmalunagar.com/posts/html-and-css-only-tabs/</link><pubDate>Sun, 09 Jul 2023 00:00:00 +0000</pubDate><guid>https://nirmalunagar.com/posts/html-and-css-only-tabs/</guid><description>&lt;h2 id="shortcodes">
  Shortcodes
  &lt;a class="heading-link" href="#shortcodes">
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
