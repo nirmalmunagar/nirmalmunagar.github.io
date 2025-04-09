@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Seeker on Nirmal</title><link>https://nirmalunagar.com/tags/seeker/</link><description>Recent content in Seeker on Nirmal</description><generator>Hugo</generator><language>en</language><lastBuildDate>Wed, 09 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://nirmalunagar.com/tags/seeker/index.xml" rel="self" type="application/rss+xml"/><item><title>Get Anyone's Location Using Seeker</title><link>https://nirmalunagar.com/posts/my-new-post/</link><pubDate>Wed, 09 Apr 2025 00:00:00 +0000</pubDate><guid>https://nirmalunagar.com/posts/my-new-post/</guid><description>&lt;h2 id="introduction">
+ Introduction
+ &lt;a class="heading-link" href="#introduction">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;p>In this tutorial, I will guide you on how to use the Seeker tool to obtain someone&amp;rsquo;s location. Seeker is a tool designed to send a link to the victim, and once clicked, it grabs the victim&amp;rsquo;s geolocation and IP address.&lt;/p>
+&lt;h2 id="prerequisites">
+ Prerequisites
+ &lt;a class="heading-link" href="#prerequisites">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;p>Before you begin, you need:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Seeker&lt;/strong> installed on your system&lt;/li>
+&lt;li>&lt;strong>Python 3&lt;/strong> installed&lt;/li>
+&lt;/ul>
+&lt;h3 id="installation">
+ Installation
+ &lt;a class="heading-link" href="#installation">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>Clone the Seeker repository from GitHub:&lt;/p></description></item></channel></rss>
