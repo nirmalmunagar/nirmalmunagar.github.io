@@ -33,8 +33,7 @@ cd seeker/
 apt update
 apt install python3 python3-pip php
 pip3 install requests
-
-
+```
 
 ## Step 2: Setup ngrok for Server
 
@@ -50,3 +49,4 @@ Now we need to add the AuthToken to our ngrok configuration. You'll see the seco
 
 ```bash
 ./ngrok authtoken <Your AuthToken>
+```
