@@ -1,5 +1,5 @@
 ---
-title: "Mastering Cybersecurity: Building a Cutting-Edge Security Operations Center with Open-Source SIEM Tools"
+title: "Building a Cutting-Edge Security Operations Center(SOC) with Elasticsearch and Fortiget"
 date: 2023-08-04T00:00:00+05:30
 draft: false
 author: "Nirmal 🇮🇳"
