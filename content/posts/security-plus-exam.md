@@ -45,6 +45,9 @@ Here is the links of vidoes which I have watched.
 
 {{< youtube k70ESamSh6Y >}}
 
+
+<p style="margin-bottom: 2em;"></p>
+
 {{< youtube jsEqInPxYlQ >}}
 
 Taking the Security+ Practice Test
