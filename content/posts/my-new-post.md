@@ -22,7 +22,7 @@ I'm dividing this blog into different steps so you can follow along easily.
 
 First, you need to download the Seeker tool from the link below:
 
-[GitHub - thewhiteh4t/seeker](https://github.com/thewhiteh4t/seeker)
+[GitHub - thewhiteh4t/seeker](static/images/Seeker/img1.webp)
 
 ### How To Install:
 
