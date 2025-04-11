@@ -12,6 +12,10 @@ tags: ["SIEM", "SOC", "ELK Stack", "Network Security", "Open Source"]
 
 I am thrilled to announce the successful completion of my master's degree project, where I designed and implemented a cutting-edge Security Operations Center (SOC) using open-source SIEM tools like the ELK (Elasticsearch, Logstash, and Kibana) stack and GNS3. This project was a culmination of my passion for cybersecurity and my commitment to enhancing network security for organizations.
 
+
+![FortiGate Firewall in Action](/static/images/soc-project.png)
+
+
 ## Task 1: Detecting and Preventing DOS Attacks Using FortiGate Firewall 🔥
 
 In the first part of my project, I focused on safeguarding the company's network from Denial-of-Service (DoS) attacks. I deployed the FortiGate firewall, a robust and industry-leading security solution, to defend against such malicious attacks. The FortiGate firewall effectively detected and prevented any potential DoS attacks, ensuring that the company's network remained resilient and reliable at all times.
