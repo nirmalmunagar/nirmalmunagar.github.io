@@ -25,6 +25,11 @@
  &lt;span class="sr-only">Link to heading&lt;/span>
  &lt;/a>
 &lt;/h3>
-&lt;ol>
-&lt;li>
-&lt;p>Clone the Seeker repository from GitHub:&lt;/p></description></item></channel></rss>
+&lt;h2 id="step-1">
+ STEP :1
+ &lt;a class="heading-link" href="#step-1">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;p>First You Need To Download seeker Tools, So Download From Below Link&lt;/p></description></item></channel></rss>
