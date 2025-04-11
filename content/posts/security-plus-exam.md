@@ -30,9 +30,6 @@ After securing my voucher, the next big question was: where do I start preparing
 
 But then, I stumbled upon Professor Messer’s course, and it was a game-changer! 🎮📚 I watched all his videos, took diligent notes, and it really helped me grasp the essentials.
 
-<div style="margin: 20px 0;">
-<iframe width="100%" height="400" src="https://www.youtube.com/embed/9NE33fpQuw8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
 
 Yet, I couldn’t shake the feeling that I needed to go even deeper. So, I got my hands on the official CompTIA Security+ book. It’s a paid resource, available for purchase or through your local library. Since I’m a resourceful student, I found it on the internet. I’ve attached an image for your reference. 📖🔍
 
