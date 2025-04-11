@@ -42,7 +42,7 @@ Now we need to setup ngrok for the server. Go to [ngrok.com](https://ngrok.com/)
 
 After signing up, you'll get this page where you can download ngrok according to your operating system:
 
-![Download ngrok page](/images/Seeker/img1.webp)
+![Download ngrok page](/static/images/Seeker/img1.webp)
 
 After downloading the file, unzip it. You'll find instructions on the ngrok website about how to unzip it properly.
 
