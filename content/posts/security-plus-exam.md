@@ -36,11 +36,7 @@ But then, I stumbled upon Professor Messer’s course, and it was a game-changer
 Yet, I couldn’t shake the feeling that I needed to go even deeper. So, I got my hands on the official CompTIA Security+ book. It’s a paid resource, available for purchase or through your local library. Since I’m a resourceful student, I found it on the internet. I’ve attached an image for your reference. 📖🔍
 
 
-<!-- ![Image alt](/images/guide.webp)
 
-
-<img src="/images/guide.webp" alt="Security Guide" style="max-width: 100%;">
---> 
 {{< figure src="/images/guide.webp" alt="Security Guide" class="text-center" >}}
 
 Reading books on cybersecurity might sound boring to some, but let me tell you, it can be a game-changer. When I started with the first chapter of that CompTIA Security+ book, I was hooked. 📖❤️ Each chapter was like a thrilling adventure, and it just kept getting better.
