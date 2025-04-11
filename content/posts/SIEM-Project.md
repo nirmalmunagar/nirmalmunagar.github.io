@@ -40,7 +40,7 @@ A big thank you to my supportive mentors, esteemed professors, and all those who
 
 📩 Feel free to connect with me on LinkedIn to learn more about my project or discuss potential collaborations in the realm of cybersecurity. Let’s join forces to make the digital world safer and more secure! 🤝
 
-Do not forget to watch exciting Demo: https://vimeo.com/851300195
+Do not forget to watch exciting Demo 
 
 {{< vimeo_simple 851300195 >}}
 
