@@ -32,6 +32,7 @@ But then, I stumbled upon Professor Messer’s course, and it was a game-changer
 
 {{< youtube 9NE33fpQuw8 >}}
 
+
 Yet, I couldn’t shake the feeling that I needed to go even deeper. So, I got my hands on the official CompTIA Security+ book. It’s a paid resource, available for purchase or through your local library. Since I’m a resourceful student, I found it on the internet. I’ve attached an image for your reference. 📖🔍
 
 Reading books on cybersecurity might sound boring to some, but let me tell you, it can be a game-changer. When I started with the first chapter of that CompTIA Security+ book, I was hooked. 📖❤️ Each chapter was like a thrilling adventure, and it just kept getting better.
@@ -42,6 +43,10 @@ To add some spice to my study routine, I also watched videos on practice tests f
 
 Here is the links of vidoes which I have watched.
 
+{{< youtube k70ESamSh6Y >}}
+
+{{< youtube jsEqInPxYlQ >}}
+
 Taking the Security+ Practice Test
 This is a live stream of me taking the Security+ Practice Exam from CompTIA CertMaster Learn.
 www.youtube.com
@@ -49,6 +54,9 @@ www.youtube.com
 Note: I took the above test after reading the book and watching YouTube videos. you can practise more if you want.
 
 The second video I want to highlight is about the numerous network commands in the CompTIA Security+ objectives. Make sure to watch this video and take notes as it covers essential content.
+
+
+{{< youtube e8YB24X60m4 >}}
 
 ## Exam Day
 
