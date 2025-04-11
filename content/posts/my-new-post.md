@@ -58,7 +58,7 @@ Now We done All Configuration Let’s do Practical
 
 Go to Seeker Directory
 
-![Download ngrok page](image.png)
+![Download ngrok page](/static/images/Seeker/img2.webp)
 
 If seeker.py file doesn’t have execute permission then set using Below cmd
 ```bash
@@ -70,17 +70,17 @@ Now Run…
 #./seeker.py -t manual
 ```
 
-![Download ngrok page](image.png)
+![Download ngrok page](/static/images/Seeker/img3.webp)
 
 
 ## Step 4
 Go to Directory Where ngrok is unzipped and run below command
 
-![Download ngrok page](image.png)
+![Download ngrok page](/static/images/Seeker/img4.webp)
 
 After You will Get like This
 
-![Download ngrok page](image.png)
+![Download ngrok page](/static/images/Seeker/img5.webp)
 
 Copy Forwarding Link and send to Victim using Phishing or Any Social Engineering Methods
 
@@ -90,20 +90,20 @@ Eg. https://e078-49-34-114-151.ngrok.io
 ## Step 5
 Now We Are in Victim Side, Once Victim Click on the Link Then it will look like This
 
-![Download ngrok page](image.png)
+![Download ngrok page](/static/images/Seeker/img6.webp)
 
 When Victim Click On Continue, Webpage Take Permission So Allow it
 
 “Note : Mostly People Don’t Notice What is Permission and people Easily allow it”
 
-![Download ngrok page](image.png)
+![Download ngrok page](/static/images/Seeker/img7.webp)
 
 
 ## Step 6
 Now Coming Back To Hacker’s Terminal(seeker’s)
 
 
-![Download ngrok page](image.png)
+![Download ngrok page](/static/images/Seeker/img8.webp)
 
 You will Get Many Information About Victim but We need Only Google Maps Links So Copy Link and Open it on Browser
 
