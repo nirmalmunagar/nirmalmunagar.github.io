@@ -15,6 +15,7 @@ As a passionate cybersecurity enthusiast, I’ve long understood the significanc
 As a master’s degree student in the UK, I lucked out with a sweet deal on my Security+ (Sec+) certification voucher. While the standard price for the certification is £233, I discovered an academic CompTIA website offering the same voucher for just £136. After factoring in the VAT, the total cost came to £150. Needless to say, I was absolutely thrilled! 😄👍
 
 [Certification Vouchers — CompTIA Marketplace Academic U.K.](https://uk-academic-store.comptia.org/certification-vouchers/c/11331?facetValueFilter=tenant%7Euser-type%3Aindividual)
+
 you can check your country as well, if it possible.
 
 ## Pre-Exam
