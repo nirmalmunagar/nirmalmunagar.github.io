@@ -22,7 +22,9 @@ I'm dividing this blog into different steps so you can follow along easily.
 
 First, you need to download the Seeker tool from the link below:
 
-[Seeker GitHub Repository](https://github.com/thewhiteh4t/seeker)
+```bash
+git clone https://github.com/thewhiteh4t/seeker.git
+```
 
 ### How To Install:
 
