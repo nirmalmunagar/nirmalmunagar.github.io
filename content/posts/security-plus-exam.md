@@ -14,8 +14,7 @@ As a passionate cybersecurity enthusiast, I’ve long understood the significanc
 
 As a master’s degree student in the UK, I lucked out with a sweet deal on my Security+ (Sec+) certification voucher. While the standard price for the certification is £233, I discovered an academic CompTIA website offering the same voucher for just £136. After factoring in the VAT, the total cost came to £150. Needless to say, I was absolutely thrilled! 😄👍
 
-Certification Vouchers — CompTIA Marketplace Academic U.K.
-
+[Certification Vouchers — CompTIA Marketplace Academic U.K.](https://uk-academic-store.comptia.org/certification-vouchers/c/11331?facetValueFilter=tenant%7Euser-type%3Aindividual)
 you can check your country as well, if it possible.
 
 ## Pre-Exam
@@ -24,7 +23,7 @@ To get started, your first step is to download the exam objectives. This documen
 
 Once you have the objectives in front of you, take a closer look. You’ll notice that it breaks down the exam content into different modules. What’s even cooler is that it tells you the weightage of each module. This helps you figure out which areas are the heavy hitters, so you can focus your study efforts wisely. It’s like having a secret weapon for acing the exam! 😉📚🎯
 
-Comptia security-sy0–601-exam-objectives-(2–0) | PDF (slideshare.net)
+[Comptia security-sy0–601-exam-objectives-(2–0)](https://www.slideshare.net/slideshow/comptia-securitysy0601examobjectives20/250426517)
 
 After securing my voucher, the next big question was: where do I start preparing for the Sec+ exam? I scoured YouTube for all sorts of free courses, hoping to find something engaging and informative. To be honest, I wasn’t quite thrilled with most of what I found.
 
