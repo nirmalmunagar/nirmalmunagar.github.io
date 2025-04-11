@@ -16,7 +16,7 @@ I am thrilled to announce the successful completion of my master's degree projec
 
 In the first part of my project, I focused on safeguarding the company's network from Denial-of-Service (DoS) attacks. I deployed the FortiGate firewall, a robust and industry-leading security solution, to defend against such malicious attacks. The FortiGate firewall effectively detected and prevented any potential DoS attacks, ensuring that the company's network remained resilient and reliable at all times.
 
-![FortiGate Firewall in Action](/images/fortigate-dos-protection.jpg)
+
 
 ## Task 2: Preventing Malware Attacks and Analyzing Events with SIEM 🛡️
 
