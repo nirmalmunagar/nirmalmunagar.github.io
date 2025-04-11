@@ -33,3 +33,20 @@ cd seeker/
 apt update
 apt install python3 python3-pip php
 pip3 install requests
+
+
+
+## Step 2: Setup ngrok for Server
+
+Now we need to setup ngrok for the server. Go to [ngrok.com](https://ngrok.com/) and sign up.
+
+After signing up, you'll get this page where you can download ngrok according to your operating system:
+
+![Download ngrok page](image.png)
+
+After downloading the file, unzip it. You'll find instructions on the ngrok website about how to unzip it properly.
+
+Now we need to add the AuthToken to our ngrok configuration. You'll see the second option which shows your token:
+
+```bash
+./ngrok authtoken <Your AuthToken>
