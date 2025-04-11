@@ -4,7 +4,7 @@
 <label class="menu-button float-right" for=menu-toggle><i class="fa-solid fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/about/>About</a></li><li class=navigation-item><a class=navigation-link href=/posts/>Blog</a></li><li class=navigation-item><a class=navigation-link href=/projects/>Projects</a></li><li class=navigation-item><a class=navigation-link href=/contact/>Contact me</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=https://nirmalunagar.com/posts/my-new-post/>Get Anyone’s Location Using Seeker</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa-solid fa-calendar" aria-hidden=true></i>
 <time datetime=2021-09-04T00:00:00+05:30>September 4, 2021
 </time></span><span class=reading-time><i class="fa-solid fa-clock" aria-hidden=true></i>
-One-minute read</span></div><div class=categories><i class="fa-solid fa-folder" aria-hidden=true></i>
+2-minute read</span></div><div class=categories><i class="fa-solid fa-folder" aria-hidden=true></i>
 <a href=/categories/cybersecurity/>Cybersecurity</a></div><div class=tags><i class="fa-solid fa-tag" aria-hidden=true></i>
 <span class=tag><a href=/tags/hacking/>Hacking</a>
 </span><span class=separator>•</span>
@@ -22,7 +22,18 @@ One-minute read</span></div><div class=categories><i class="fa-solid fa-folder" 
 </span></span></code></pre></div><h2 id=step-2-setup-ngrok-for-server>Step 2: Setup ngrok for Server
 <a class=heading-link href=#step-2-setup-ngrok-for-server><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
 <span class=sr-only>Link to heading</span></a></h2><p>Now we need to setup ngrok for the server. Go to <a href=https://ngrok.com/ class=external-link target=_blank rel=noopener>ngrok.com</a> and sign up.</p><p>After signing up, you&rsquo;ll get this page where you can download ngrok according to your operating system:</p><p><img src=image.png alt="Download ngrok page"></p><p>After downloading the file, unzip it. You&rsquo;ll find instructions on the ngrok website about how to unzip it properly.</p><p>Now we need to add the AuthToken to our ngrok configuration. You&rsquo;ll see the second option which shows your token:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>./ngrok authtoken &lt;Your AuthToken&gt;
-</span></span></code></pre></div></div><footer></footer></article></section></div><footer class=footer><section class=container>©
+</span></span></code></pre></div><p>Now We done All Configuration Let’s do Practical</p><h2 id=step-3>Step 3:
+<a class=heading-link href=#step-3><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><p>Go to Seeker Directory</p><p><img src=image.png alt="Download ngrok page"></p><p>If seeker.py file doesn’t have execute permission then set using Below cmd</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># chmod +x seeker.py</span>
+</span></span></code></pre></div><p>Now Run…</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1>#./seeker.py -t manual</span>
+</span></span></code></pre></div><p><img src=image.png alt="Download ngrok page"></p><h2 id=step-4>Step 4
+<a class=heading-link href=#step-4><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><p>Go to Directory Where ngrok is unzipped and run below command
+<img src=image.png alt="Download ngrok page"></p><p>After You will Get like This</p><p><img src=image.png alt="Download ngrok page"></p><p>Copy Forwarding Link and send to Victim using Phishing or Any Social Engineering Methods</p><p>Eg. <a href=https://e078-49-34-114-151.ngrok.io class=external-link target=_blank rel=noopener>https://e078-49-34-114-151.ngrok.io</a></p><h2 id=step-5>Step 5
+<a class=heading-link href=#step-5><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><p>Now We Are in Victim Side, Once Victim Click on the Link Then it will look like This</p><p><img src=image.png alt="Download ngrok page"></p><p>When Victim Click On Continue, Webpage Take Permission So Allow it</p><p>“Note : Mostly People Don’t Notice What is Permission and people Easily allow it”</p><p><img src=image.png alt="Download ngrok page"></p><h2 id=step-6>Step 6
+<a class=heading-link href=#step-6><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><p>Now Coming Back To Hacker’s Terminal(seeker’s)</p><p><img src=image.png alt="Download ngrok page"></p><p>You will Get Many Information About Victim but We need Only Google Maps Links So Copy Link and Open it on Browser</p><p>Boom You will See Victim Live Location</p><p>So,Thank You For Your Time</p></div><footer></footer></article></section></div><footer class=footer><section class=container>©
 2025
 Nirmal Unagar
 ·
