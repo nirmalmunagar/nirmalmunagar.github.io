@@ -1,18 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Nirmal</title><link>https://nirmalunagar.com/posts/</link><description>Recent content in Posts on Nirmal</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 13 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://nirmalunagar.com/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Markdown Syntax Guide</title><link>https://nirmalunagar.com/posts/markdown-syntax/</link><pubDate>Thu, 13 Jul 2023 00:00:00 +0000</pubDate><guid>https://nirmalunagar.com/posts/markdown-syntax/</guid><description>&lt;p>This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p></description></item><item><title>Math Typesetting</title><link>https://nirmalunagar.com/posts/math-typesetting/</link><pubDate>Mon, 10 Jul 2023 00:00:00 +0000</pubDate><guid>https://nirmalunagar.com/posts/math-typesetting/</guid><description>&lt;p>Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.&lt;/p></description></item><item><title>Emoji Support</title><link>https://nirmalunagar.com/posts/emoji-support/</link><pubDate>Fri, 07 Jul 2023 00:00:00 +0000</pubDate><guid>https://nirmalunagar.com/posts/emoji-support/</guid><description>&lt;p>Emoji can be enabled in a Hugo project in a number of ways.&lt;/p></description></item><item><title>External Page: Hugo Coder Wiki</title><link>https://nirmalunagar.com/posts/hugo-coder-wiki/</link><pubDate>Thu, 06 Jul 2023 00:00:00 +0000</pubDate><guid>https://nirmalunagar.com/posts/hugo-coder-wiki/</guid><description/></item><item><title/><link>https://nirmalunagar.com/posts/my-new-post/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://nirmalunagar.com/posts/my-new-post/</guid><description>&lt;p>Search
-Write
-Sign up&lt;/p>
-&lt;p>Sign in&lt;/p>
-&lt;p>Top highlight&lt;/p>
-&lt;p>Get Anyone’s Location Using Seeker
-Nirmal 🇮🇳
-Nirmal 🇮🇳&lt;/p>
-&lt;p>·
-Follow&lt;/p>
-&lt;p>3 min read
-·
-Sep 4, 2021
-142&lt;/p>
-&lt;p>3&lt;/p>
-&lt;p>Hello Folks, I am Nirmal Unagar&lt;/p>
-&lt;p>Today i am Writing My First Blog so Please Bear With me For My English Skill :)&lt;/p>
-&lt;p>In This blog, I will Tell You How to Get Anyone&amp;rsquo;s Location Using Tool seeker, so without further do let’s start…&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Nirmal</title><link>https://nirmalunagar.com/posts/</link><description>Recent content in Posts on Nirmal</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 13 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://nirmalunagar.com/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Markdown Syntax Guide</title><link>https://nirmalunagar.com/posts/markdown-syntax/</link><pubDate>Thu, 13 Jul 2023 00:00:00 +0000</pubDate><guid>https://nirmalunagar.com/posts/markdown-syntax/</guid><description>&lt;p>This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p></description></item><item><title>Math Typesetting</title><link>https://nirmalunagar.com/posts/math-typesetting/</link><pubDate>Mon, 10 Jul 2023 00:00:00 +0000</pubDate><guid>https://nirmalunagar.com/posts/math-typesetting/</guid><description>&lt;p>Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.&lt;/p></description></item><item><title>Emoji Support</title><link>https://nirmalunagar.com/posts/emoji-support/</link><pubDate>Fri, 07 Jul 2023 00:00:00 +0000</pubDate><guid>https://nirmalunagar.com/posts/emoji-support/</guid><description>&lt;p>Emoji can be enabled in a Hugo project in a number of ways.&lt;/p></description></item><item><title>External Page: Hugo Coder Wiki</title><link>https://nirmalunagar.com/posts/hugo-coder-wiki/</link><pubDate>Thu, 06 Jul 2023 00:00:00 +0000</pubDate><guid>https://nirmalunagar.com/posts/hugo-coder-wiki/</guid><description/></item><item><title>Get Anyone’s Location Using Seeker</title><link>https://nirmalunagar.com/posts/my-new-post/</link><pubDate>Sat, 04 Sep 2021 00:00:00 +0530</pubDate><guid>https://nirmalunagar.com/posts/my-new-post/</guid><description>&lt;p>Hello Folks, I am Nirmal Unagar&lt;/p>
+&lt;p>Today I am writing my first blog so please bear with me for my English skills :)&lt;/p>
+&lt;p>In this blog, I will tell you how to get anyone&amp;rsquo;s location using the tool Seeker. Without further ado, let&amp;rsquo;s start&amp;hellip;&lt;/p>
+&lt;p>&lt;img src="images/seeker-location-tool.jpg" alt="Photo by Lagos Techie on Unsplash">&lt;/p>
+&lt;p>I&amp;rsquo;m dividing this blog into different steps so you can follow along easily.&lt;/p>
+&lt;h2 id="step-1-download-and-install-seeker">
+ Step 1: Download and Install Seeker
+ &lt;a class="heading-link" href="#step-1-download-and-install-seeker">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;p>First, you need to download the Seeker tool from the link below:&lt;/p></description></item></channel></rss>
