@@ -86,6 +86,4 @@ Cybersecurity • Audit and Security • System administration & Security • Ne
 **B.Tech Computer Science**  
 *Ganpat University, India* | 2017-2021  
 
----
 
-*[📄 Download PDF Resume](/files/Nirmal_Resume.pdf)*
