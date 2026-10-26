@@ -20,7 +20,7 @@ pagerSize = 10
 
 [markup]
   [markup.highlight]
-    style = "github-dark"
+    style = "monokai"
     lineNos = true
 
 [markup.goldmark]
