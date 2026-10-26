@@ -14,9 +14,14 @@ pagerSize = 10
 # Enable Disqus comments
 # shortname = "yourdiscussshortname"
 
+#[markup]
+#[markup.highlight]
+#noClasses = false
+
 [markup]
-[markup.highlight]
-noClasses = false
+  [markup.highlight]
+    style = "github-dark"
+    lineNos = true
 
 [markup.goldmark]
 [markup.goldmark.renderer]
