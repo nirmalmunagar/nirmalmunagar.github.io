@@ -1,5 +1,5 @@
 ---
-title: "PHP2Shell: Detecting PHP Webshell Activity with Microsoft Defender"
+title: "PHP2Shell: Hunting Webshells with Microsoft Defender XDR on Windows and Linux"
 date: 2026-10-26T00:00:00+05:30
 draft: false
 author: "Nirmal 🇮🇳"
@@ -119,7 +119,7 @@ It also catches cases where a web server process launches a suspicious child dir
 
 `DownloadIndicator` is a prioritisation hint. It flags command lines containing URL strings or common download-related terms. A `true` result does **not** prove that a download succeeded, and a `false` result does **not** mean the activity is safe.
 
-```kusto
+```sql
 let WebServers = dynamic(['win-web-01', 'win-web-02']);
 let WebParents = dynamic(['w3wp.exe','php-cgi.exe','php-win.exe','httpd.exe','apache.exe','nginx.exe']);
 let SuspiciousChildren = dynamic(['cmd.exe','powershell.exe','pwsh.exe','curl.exe','certutil.exe','bitsadmin.exe','whoami.exe','net.exe','net1.exe','nltest.exe','systeminfo.exe','mshta.exe','rundll32.exe','regsvr32.exe','wscript.exe','cscript.exe']);
@@ -137,7 +137,7 @@ DeviceProcessEvents
 
 **1. Define the Windows web servers**
 
-```kusto
+```sql
 let WebServers = dynamic(['win-web-01', 'win-web-02']);
 ```
 
@@ -145,7 +145,7 @@ This list limits the hunt to the specified devices. Replace the example names wi
 
 **2. Identify web server and PHP-related parent processes**
 
-```kusto
+```sql
 let WebParents = dynamic(['w3wp.exe','php-cgi.exe','php-win.exe','httpd.exe','apache.exe','nginx.exe']);
 ```
 
@@ -162,7 +162,7 @@ These names are indicators, not proof of malicious activity. Confirm the actual 
 
 **3. Define potentially suspicious child processes**
 
-```kusto
+```sql
 let SuspiciousChildren = dynamic(['cmd.exe','powershell.exe','pwsh.exe','curl.exe','certutil.exe','bitsadmin.exe','whoami.exe','net.exe','net1.exe','nltest.exe','systeminfo.exe','mshta.exe','rundll32.exe','regsvr32.exe','wscript.exe','cscript.exe']);
 ```
 
@@ -178,7 +178,7 @@ These utilities also have legitimate administrative uses. The detection is inter
 
 **4. Search process events from the last seven days**
 
-```kusto
+```sql
 DeviceProcessEvents
 | where Timestamp > ago(7d)
 ```
@@ -187,7 +187,7 @@ DeviceProcessEvents
 
 **5. Filter by device, parent and child process**
 
-```kusto
+```sql
 | where DeviceName has_any (WebServers)
 | where InitiatingProcessFileName in~ (WebParents)
 | where FileName in~ (SuspiciousChildren)
@@ -199,7 +199,7 @@ For example, `php-cgi.exe` launching `powershell.exe` can match. A PowerShell pr
 
 **6. Add a download-related indicator**
 
-```kusto
+```sql
 | extend DownloadIndicator = ProcessCommandLine has_any ('http://', 'https://', 'Invoke-WebRequest', 'DownloadString', 'DownloadFile', 'Net.WebClient', '-urlcache', 'bitsadmin')
 ```
 
@@ -209,7 +209,7 @@ Treat it as a prioritisation clue only. The query does not validate whether a UR
 
 **7. Select the fields needed for investigation**
 
-```kusto
+```sql
 | project Timestamp, DeviceName, DeviceId, ReportId, InitiatingProcessFileName, InitiatingProcessCommandLine, InitiatingProcessAccountName, FileName, ProcessCommandLine, AccountName, DownloadIndicator
 ```
 
@@ -217,7 +217,7 @@ These columns help an analyst understand when and where the process ran, what la
 
 **8. Sort likely download-related events first**
 
-```kusto
+```sql
 | order by DownloadIndicator desc, Timestamp desc
 ```
 
@@ -412,7 +412,7 @@ Thanks for reading!
 
 I'm sharing these queries as a practical starting point for detection engineering, not as a plug-and-play rule for every environment. Please test them in a lab, validate the telemetry available in your Defender environment, and tune against normal application behaviour before creating production alerts.
 
-**Suggestions and improvements are welcome.** If you've tested these detections, found a useful improvement, or spotted an edge case, feel free to share your feedback.
+Suggestions and improvements are welcome. If you've tested these detections, found a useful improvement, or spotted an edge case, feel free to share your feedback.
 
 
 
