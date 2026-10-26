@@ -171,7 +171,7 @@ DeviceFileEvents
 
 Catches the staging step. Once an attacker has a shell, they usually bring tooling. A web or PHP process creating an executable, library, or script is almost never legitimate, on either OS.
 
-```kusto
+```sql
 let WebServers = dynamic(['web-srv-01', 'web-srv-02']);
 let WebProcs = dynamic(['w3wp.exe','php-cgi.exe','php-win.exe','httpd.exe','apache.exe','nginx.exe','apache2','httpd','nginx','php-cgi','lsphp','litespeed']);
 DeviceFileEvents
