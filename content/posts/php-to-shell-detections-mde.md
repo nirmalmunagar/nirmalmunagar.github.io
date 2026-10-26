@@ -91,7 +91,7 @@ DeviceProcessEvents
 | summarize Executions = count(), FirstSeen = min(Timestamp), LastSeen = max(Timestamp) by InitiatingProcessFileName, FileName
 | order by Executions desc
 ```
-{{< src="/images/step5.png" alt="Baseline query result showing w3wp.exe spawning php-cgi.exe" class="text-center" >}} 
+{{< src="static/images/step5.png" alt="Baseline query result showing w3wp.exe spawning php-cgi.exe" class="text-center" >}} 
 Running this on my own environment, the top row was `w3wp.exe` → `php-cgi.exe` with a high execution count and a wide FirstSeen–LastSeen spread. That's expected and healthy — it's exactly the IIS + FastCGI chain described in Step 1 (IIS spins up `w3wp.exe`, which hands requests to `php-cgi.exe` to actually run the PHP). 
 
 Seeing it here confirms two things:
