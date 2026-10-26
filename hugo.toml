@@ -20,7 +20,7 @@ pagerSize = 10
 
 [markup]
   [markup.highlight]
-    style = "github-dark"
+    style = "Ambiance"
     lineNos = false
 
 [markup.goldmark]
