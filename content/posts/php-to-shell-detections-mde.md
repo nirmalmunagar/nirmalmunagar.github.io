@@ -22,6 +22,7 @@ That moment is the weak point. A web-facing process (IIS, Apache, PHP-FPM) sudde
 
 All queries use standard Defender XDR Advanced Hunting tables (`DeviceProcessEvents`, `DeviceFileEvents`, `DeviceTvm*`, `DeviceInfo`).
 
+
 ## Step 1: How PHP Actually Runs on a Server
 
 The basic flow is: browser → web server → PHP → script runs → response. PHP code runs under a low-privilege identity (an IIS app pool or a service account on Windows, `www-data`/`apache`/`nginx` on Linux). What matters for detection is **which process hosts PHP**, because that process name becomes the parent of anything the script launches.
@@ -34,6 +35,7 @@ The basic flow is: browser → web server → PHP → script runs → response. 
 | CGI / LSAPI | Both / LiteSpeed | PHP launched per request or by LiteSpeed | `php-cgi`, `lsphp` |
 | CLI | Both | Run from a terminal, cron, or scheduled task | `php`/`php.exe` |
 
+I know, I know — Step 1 felt like a classroom lecture 😅 But now, let’s get our hands dirty. 
 Two things that trip people up when writing these detections:
 
 - **`php-fpm.exe` does not exist.** PHP-FPM is a Linux-only process model.
