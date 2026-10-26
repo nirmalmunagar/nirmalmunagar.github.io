@@ -92,11 +92,13 @@ DeviceProcessEvents
 | order by Executions desc
 ```
 {{< figure src="/images/step5.png" alt="Baseline query result showing w3wp.exe spawning php-cgi.exe" class="text-center" >}}
-Running this on my own environment, the top row was `w3wp.exe` → `php-cgi.exe` with a high execution count and a wide FirstSeen–LastSeen spread. That's expected and healthy — it's exactly the IIS + FastCGI chain described in Step 1 (IIS spins up `w3wp.exe`, which hands requests to `php-cgi.exe` to actually run the PHP). Seeing it here confirms two things:
+Running this on my own environment, the top row was `w3wp.exe` → `php-cgi.exe` with a high execution count and a wide FirstSeen–LastSeen spread. That's expected and healthy — it's exactly the IIS + FastCGI chain described in Step 1 (IIS spins up `w3wp.exe`, which hands requests to `php-cgi.exe` to actually run the PHP). 
 
-1.The sensor is capturing this process chain correctly, so the shell detections downstream (Detection 1) will fire if something abnormal happens on top of it.
+Seeing it here confirms two things:
 
-2.`php-cgi.exe` itself is not the thing to alert on — it runs constantly and legitimately. What you're watching for is `php-cgi.exe` spawning something it shouldn't, like `cmd.exe` or `powershell.exe`, which is what Detection 1 checks next.
+1. The sensor is capturing this process chain correctly, so the shell detections downstream (Detection 1) will fire if something abnormal happens on top of it.
+
+2. `php-cgi.exe` itself is not the thing to alert on — it runs constantly and legitimately. What you're watching for is `php-cgi.exe` spawning something it shouldn't, like `cmd.exe` or `powershell.exe`, which is what Detection 1 checks next.
 
 ### Detection 1: Windows web/PHP process spawns a shell or LOLBin
 
