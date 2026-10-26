@@ -20,7 +20,7 @@ pagerSize = 10
 
 [markup]
   [markup.highlight]
-    style = "Ambiance"
+    style = "monokai"
     lineNos = false
 
 [markup.goldmark]
