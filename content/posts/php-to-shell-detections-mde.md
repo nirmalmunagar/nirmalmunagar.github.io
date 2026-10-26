@@ -81,7 +81,7 @@ That gives us three angles to detect on:
 
 Before alerting on anything, learn what your web processes normally launch. Anything in the output you can't explain is either a tuning exclusion or a finding.
 
-```kusto
+```sql
 let WebServers = dynamic(['web-srv-01', 'web-srv-02']);
 let WebProcs = dynamic(['w3wp.exe','php-cgi.exe','php-win.exe','httpd.exe','apache.exe','nginx.exe','apache2','httpd','nginx','php-cgi','lsphp','litespeed']);
 DeviceProcessEvents
@@ -108,7 +108,7 @@ This is the core PHP-to-shell signal on Windows. On IIS with PHP, the chain is `
 
 `DownloadIndicator` flags command lines that fetch something from the internet — that's usually the step right after initial access, so treat those rows as highest priority.
 
-```kusto
+```sql
 let WebServers = dynamic(['win-web-01', 'win-web-02']);
 let WebParents = dynamic(['w3wp.exe','php-cgi.exe','php-win.exe','httpd.exe','apache.exe','nginx.exe']);
 let SuspiciousChildren = dynamic(['cmd.exe','powershell.exe','pwsh.exe','curl.exe','certutil.exe','bitsadmin.exe','whoami.exe','net.exe','net1.exe','nltest.exe','systeminfo.exe','mshta.exe','rundll32.exe','regsvr32.exe','wscript.exe','cscript.exe']);
@@ -128,7 +128,7 @@ DeviceProcessEvents
 
 Apache, Nginx, LiteSpeed, or PHP-FPM should not be starting `sh`, `bash`, `curl`, `wget`, or interpreters. PHP's `system()` ends up as `sh -c <command>`, so the shell is usually the first thing you'll see.
 
-```kusto
+```sql
 let WebServers = dynamic(['lnx-web-01', 'lnx-web-02']);
 let WebParents = dynamic(['apache2','httpd','nginx','php-cgi','lsphp','litespeed']);
 let SuspiciousChildren = dynamic(['sh','bash','dash','zsh','curl','wget','nc','ncat','socat','perl','whoami','id','uname']);
@@ -149,7 +149,7 @@ DeviceProcessEvents
 
 Catches the upload step. Web processes serving pages should rarely create new PHP files — a `.php` file appearing in an uploads or temp folder is a classic webshell drop. Works for both Windows and Linux in one query.
 
-```kusto
+```sql
 let WebServers = dynamic(['web-srv-01', 'web-srv-02']);
 let WebProcs = dynamic(['w3wp.exe','php-cgi.exe','php-win.exe','httpd.exe','apache.exe','nginx.exe','apache2','httpd','nginx','php-cgi','lsphp','litespeed']);
 DeviceFileEvents
@@ -188,7 +188,7 @@ DeviceFileEvents
 
 Inventories PHP across the estate using Defender Vulnerability Management and flags internet-facing devices. Use this to scope where the detections above matter most.
 
-```kusto
+```sql
 DeviceTvmSoftwareInventory
 | where SoftwareName contains 'php'
 | join kind=leftouter (
@@ -204,7 +204,7 @@ DeviceTvmSoftwareInventory
 
 Lists High and Critical CVEs against PHP, per device. Pair with Exposure 1 to patch internet-facing servers first.
 
-```kusto
+```sql
 DeviceTvmSoftwareVulnerabilities
 | where SoftwareName contains 'php'
 | where VulnerabilitySeverityLevel in ('Critical', 'High')
@@ -235,6 +235,3 @@ So, Thank You For Your Time.
 
 
 
-```sql
-SELECT * FROM users WHERE id = 1;
-```
