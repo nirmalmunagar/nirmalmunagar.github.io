@@ -1,5 +1,5 @@
 ---
-title: "PHP-to-Shell: Detecting PHP Webshell Activity with Microsoft Defender for Endpoint"
+title: "PHP2Shell: Detecting PHP Webshell Activity with Microsoft Defender"
 date: 2026-10-26T00:00:00+05:30
 draft: false
 author: "Nirmal 🇮🇳"
