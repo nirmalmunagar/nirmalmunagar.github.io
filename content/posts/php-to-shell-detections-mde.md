@@ -229,7 +229,7 @@ DeviceTvmSoftwareVulnerabilities
 
 ## Takeaway
 
-You don't need a SIEM to catch PHP webshell activity. A web-facing process starting a shell, writing PHP into a folder it shouldn't, or dropping executables is a high-signal pattern — and Defender for Endpoint gives you that telemetry on both Windows and Linux. Baseline first, tune narrowly, and alert on the rest.
+A web-facing process starting a shell, writing PHP into a folder it shouldn't, or dropping executables is a high-signal pattern — and Defender for Endpoint gives you that telemetry on both Windows and Linux. Baseline first, tune narrowly, and alert on the rest.
 
 So, Thank You For Your Time.
 
