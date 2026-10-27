@@ -46,7 +46,7 @@ I also look for PHP files being written and other scripts or executables being d
 - The process and file queries are behaviour-based hunts. The baseline and exposure queries are mainly for learning normal activity and prioritising systems, so I would adapt them before using them as production alerts.
 - I have not included `php.exe` or `php` as a web parent in the shell detections because CLI PHP can legitimately run through scheduled tasks, Composer or deployment scripts.
 
-## The queries
+## KQL Queries
 
 ### Baseline: learn normal activity first
 
@@ -69,6 +69,11 @@ I use this query to see which child processes web/PHP processes normally launch 
 
 ![Baseline query result showing w3wp.exe spawning php-cgi.exe](/images/step5.png)
 
+<p align="center">
+  <img src="/images/step5.png" alt="Baseline query results" width="800">
+</p>
+
+
 When I ran this in my own environment, the top row was `w3wp.exe` → `php-cgi.exe`, with a high execution count and a wide FirstSeen–LastSeen spread. That looked normal for IIS with FastCGI: the IIS worker process (`w3wp.exe`) hands PHP requests to `php-cgi.exe`. 
 
 Seeing it here confirms two things:
@@ -77,7 +82,7 @@ Seeing it here confirms two things:
 
 2. `php-cgi.exe` itself is not the thing to alert on — it runs constantly and legitimately. What you're watching for is `php-cgi.exe` spawning something it shouldn't, like `cmd.exe` or `powershell.exe`, which is the behaviour the Windows process query looks for.
 
-### Windows web/PHP process launches a shell or tool
+### Detection 1: Windows web/PHP process launches a shell or tool
 
 This is the core PHP-to-shell signal on Windows. On IIS with PHP, the process chain may look like `w3wp.exe` → `php-cgi.exe` → `cmd.exe`. This query looks for the final step: a web server or PHP-related process launching a command interpreter, download utility, discovery tool, or another potentially suspicious Windows utility.
 
@@ -85,7 +90,7 @@ It also catches cases where a web server process launches a suspicious child dir
 
 `DownloadIndicator` is a prioritisation hint. It flags command lines containing URL strings or common download-related terms. A `true` result does **not** prove that a download succeeded, and a `false` result does **not** mean the activity is safe.
 
-```kusto
+```sql
 let WebServers = dynamic(['win-web-01', 'win-web-02']);
 let WebParents = dynamic(['w3wp.exe','php-cgi.exe','php-win.exe','httpd.exe','apache.exe','nginx.exe']);
 let SuspiciousChildren = dynamic(['cmd.exe','powershell.exe','pwsh.exe','curl.exe','certutil.exe','bitsadmin.exe','whoami.exe','net.exe','net1.exe','nltest.exe','systeminfo.exe','mshta.exe','rundll32.exe','regsvr32.exe','wscript.exe','cscript.exe']);
@@ -99,7 +104,7 @@ DeviceProcessEvents
 | order by DownloadIndicator desc, Timestamp desc
 ```
 
-#### What the query checks
+#### Query Explanation
 
 The query first limits results to the specified Windows web servers. It then looks for a listed web/PHP process launching a child such as `cmd.exe`, PowerShell, `curl.exe`, or a discovery utility. These tools can be used legitimately, so the parent-child relationship and server context matter.
 
@@ -107,7 +112,7 @@ The query first limits results to the specified Windows web servers. It then loo
 
 One limitation: this query checks the immediate initiating process. It will not automatically match every step of a longer chain such as `w3wp.exe` → `php-cgi.exe` → `cmd.exe`; it can match the final step when `php-cgi.exe` is the process that launches `cmd.exe`.
 
-#### How I would investigate
+#### How to Deal with
 
 I would start by reviewing `InitiatingProcessCommandLine` and `ProcessCommandLine` to understand what launched the child process and what command it ran. I would then inspect the process tree to confirm whether that relationship is expected for the application or server.
 
@@ -119,7 +124,7 @@ Next, I would check `InitiatingProcessAccountName` and `AccountName`, including 
 
 ---
 
-### Linux web/PHP process launches a shell or download tool
+### Detection 2: Linux web/PHP process launches a shell or download tool
 
 Apache, Nginx, LiteSpeed, or PHP-FPM should not be starting `sh`, `bash`, `curl`, `wget`, or interpreters. PHP's `system()` commonly results in a shell such as `sh -c <command>`, so the shell may be the first child process visible in Defender telemetry.
 
@@ -141,20 +146,20 @@ DeviceProcessEvents
 | order by DownloadIndicator desc, Timestamp desc
 ```
 
-#### What the query checks
+#### Query Explanation
 
 The query looks for Linux web/PHP processes launching shells, download utilities, discovery commands or Python. The `startswith 'php-fpm'` condition also matches versioned names such as `php-fpm8.2`. It excludes command lines containing `/usr/sbin/sendmail -t`, which can appear in normal PHP mail activity. That exclusion should be validated in the target environment rather than treating every matching event as safe.
 
 `DownloadIndicator` highlights command lines containing URLs, `curl ` or `wget `. It helps prioritise results but does not prove that a download succeeded.
 
-#### How I would investigate
+#### How to Deal with
 
 I would review the parent and child command lines, the service account, and the process tree to understand why the web/PHP process launched the child. I would then check nearby file and network events. On Linux, I would pay particular attention to unexpected shells, reverse-connection utilities such as `nc`, `ncat` or `socat`, reconnaissance commands, and unexpected interpreter execution.
 
-**Tuning:** PHP's `mail()` legitimately runs `sh -c /usr/sbin/sendmail -t -i` on many systems, so the query excludes command lines containing that text. Keep exclusions narrow: an attacker may be able to reproduce the same text, and the exclusion alone should not be treated as a security boundary.
+**Note:** PHP's `mail()` legitimately runs `sh -c /usr/sbin/sendmail -t -i` on many systems, so the query excludes command lines containing that text. Keep exclusions narrow: an attacker may be able to reproduce the same text, and the exclusion alone should not be treated as a security boundary.
 
 
-### Web/PHP process writes a PHP file
+### Detection 3: Web/PHP process writes a PHP file
 
 This detection looks for PHP-related files created, modified, or renamed by a web/PHP process. It targets the file-drop stage: an attacker may upload a webshell or write a PHP payload to a web-accessible location, then request it over HTTP.
 
@@ -175,18 +180,18 @@ DeviceFileEvents
 | order by UserWritablePath desc, Timestamp desc
 ```
 
-#### What the query checks
+#### Query Explanation
 
 The query uses `DeviceFileEvents` to find PHP-related files created, modified or renamed by a web/PHP process. The extension filter includes `.php`, `.php` followed by one digit, `.phtml` and `.phar`. `UserWritablePath` highlights paths containing terms such as `uploads`, `images`, `media`, `tmp` or `temp`. This is only a rough clue: it does not prove that the directory is writable or that the file is malicious.
 
-**How I would investigate:** I would first check `FolderPath`, `FileName` and `ActionType`, then review the initiating process, its command line and the account that wrote the file. I would check whether the file is expected for the application and look for related web requests or suspicious process execution around the same time.
+**How to Deal with:** I would first check `FolderPath`, `FileName` and `ActionType`, then review the initiating process, its command line and the account that wrote the file. I would check whether the file is expected for the application and look for related web requests or suspicious process execution around the same time.
 
 I would prioritise rows where `UserWritablePath` is `true`, especially if the file appears in a user-uploaded content directory. I would not assume that every PHP file in such a directory is executable; I would confirm the web-server configuration and application behaviour.
 
-**Tuning:** CMS updates, deployment tooling, Composer, and frameworks can legitimately write PHP files. Baseline first, then use narrow exclusions based on known paths and expected processes. Do not exclude all PHP writes from a web server.
+CMS updates, deployment tooling, Composer, and frameworks can legitimately write PHP files. Baseline first, then use narrow exclusions based on known paths and expected processes. Do not exclude all PHP writes from a web server.
 
 
-### Web/PHP process drops a script or executable
+### Detection 4: Web/PHP process drops a script or executable
 
 This detection looks for a web/PHP process creating or renaming a file with an executable, library, or script extension. It targets possible staging activity after initial command execution, when an attacker may place a payload or supporting tool on the server.
 
@@ -206,15 +211,15 @@ DeviceFileEvents
 | order by Timestamp desc
 ```
 
-#### What the query checks
+#### Query Explanation
 
 This query looks for file types that could be used to run code or load additional functionality, including executables, libraries, shell scripts and Python files. It checks file creation and rename events and includes `SHA256` for correlation with other events or reputation sources when a hash is available. A file extension alone does not establish whether a file is malicious.
 
-**How I would investigate:** I would check the full file path, SHA256 hash, initiating process and account. Where applicable, I would validate the file's origin and signature, then pivot to process execution and network events involving the same device or file. I would use the surrounding activity to decide whether the file is expected or needs further investigation.
+I would check the full file path, SHA256 hash, initiating process and account. Where applicable, I would validate the file's origin and signature, then pivot to process execution and network events involving the same device or file. I would use the surrounding activity to decide whether the file is expected or needs further investigation.
 
-**Tuning:** Baseline legitimate deployment and update workflows. Focus on unexpected file types and locations, and use narrow exceptions for known-good activity rather than excluding a whole web-server process.
+To finetuning, baseline legitimate deployment and update workflows. Focus on unexpected file types and locations, and use narrow exceptions for known-good activity rather than excluding a whole web-server process.
 
-### Find PHP installations on internet-facing devices
+### Find PHP installations on internet-facing devices(Not detection rule but hunting query)
 
 This query shifts from behaviour to asset discovery. It uses Defender Vulnerability Management software inventory to find software whose name contains `php`, then joins the latest available `DeviceInfo` record per device to add the `IsInternetFacing` value.
 
@@ -231,8 +236,8 @@ DeviceTvmSoftwareInventory
 | project DeviceName, OSPlatform, SoftwareName, SoftwareVersion, IsInternetFacing
 | order by IsInternetFacing desc, DeviceName asc
 ```
+Thanks to Priyank for guiding in this query...
 
-#### How I would use the results
 
 I would use `SoftwareName` and `SoftwareVersion` to identify the PHP installations Defender reports. I would then check `IsInternetFacing` to help prioritise which devices to review first.
 
@@ -240,7 +245,7 @@ If the internet-facing value is empty, I would check whether a matching `DeviceI
 
 **Limitations:** Inventory depends on Defender's discovery and reporting. A software name containing `php` may not capture every deployment or bundled runtime, and the internet-facing flag should be validated against your actual network exposure and asset records.
 
-### Find high and critical PHP vulnerabilities
+### Find high and critical PHP vulnerabilities(Not detection rule but hunting query)
 
 This query looks for PHP entries in Defender Vulnerability Management's software-vulnerability data and retains findings rated `High` or `Critical`. It then groups the results by device, operating system, software name, and version, counting distinct CVEs and collecting up to 20 CVE IDs for each group.
 
@@ -253,19 +258,18 @@ DeviceTvmSoftwareVulnerabilities
 | order by CveCount desc
 ```
 
-#### How I would investigate the results
 
 I would start with devices showing the highest `CveCount`, then review the listed CVEs and the affected PHP software version. `dcount(CveId)` counts distinct CVEs for each device/software/version group, while `make_set(CveId, 20)` returns up to 20 CVE IDs, so I would not treat that list as exhaustive when a group has more than 20 findings.
 
-I would compare these results with Exposure 1 and prioritise internet-facing systems where appropriate. Before recommending a patch, I would confirm the affected version and check the vendor advisory, since inventory can lag and applicability may depend on packaging, backported fixes or how PHP was installed.
+I would compare these results with first hunting query and prioritise internet-facing systems where appropriate. Before recommending a patch, I would confirm the affected version and check the vendor advisory, since inventory can lag and applicability may depend on packaging, backported fixes or how PHP was installed.
 
-## Testing and hardening
+
 
 **Test in a lab, not production.** Drop a one-line script in a test web root, for example `<?php system('whoami'); ?>`, and browse to it. The file-write query should return the file event, while the relevant Windows or Linux process query should return the child-process activity. If neither fires, check sensor health before assuming the server is clean.
 
 **Tune by parent + command line, not by whole process.** Excluding `php-fpm` or `w3wp.exe` entirely defeats the point.
 
-**Know the limits.** MDE sees processes, files, and network activity — not HTTP requests or PHP source. A webshell that only reads files or dumps a database without spawning a process won't trigger the process detections. Web server logs, a WAF, and file integrity monitoring fill that gap.
+**IMP** MDE sees processes, files, and network activity — not HTTP requests or PHP source. A webshell that only reads files or dumps a database without spawning a process won't trigger the process detections. Web server logs, a WAF, and file integrity monitoring fill that gap.
 
 **Hardening that makes these detections quieter and the attacker's life harder:**
 
@@ -274,7 +278,7 @@ I would compare these results with Exposure 1 and prioritise internet-facing sys
 - Run PHP under a dedicated low-privilege account with a restrictive `open_basedir`.
 - Keep PHP patched and on a supported version.
 
-## Takeaway
+
 
 A web-facing process starting a shell, writing PHP into a folder it shouldn't, or dropping executables is a high-signal pattern — and Defender for Endpoint gives you that telemetry on both Windows and Linux. Baseline first, tune narrowly, and alert on the rest.
 
@@ -283,6 +287,18 @@ Thanks for reading!
 I'm sharing these queries as a practical starting point for detection engineering, not as a plug-and-play rule for every environment. Please test them in a lab, validate the telemetry available in your Defender environment, and tune against normal application behaviour before creating production alerts.
 
 **Suggestions and improvements are welcome.** If you've tested these detections, found a useful improvement, or spotted an edge case, feel free to share your feedback.
+
+
+
+## References
+
+- [Kusto Query Language (KQL) documentation – Microsoft Learn](https://learn.microsoft.com/en-us/kusto/query/?view=microsoft-fabric)
+- [PHP Official Website](https://www.php.net/)
+- [PHP2Shell: PHP RCE – Wiz](https://www.wiz.io/blog/php2shell-php-rce)
+- [Understanding PHP2Shell: Everything You Need to Know – Akamai](https://www.akamai.com/blog/security-research/understanding-php2shell-everything-you-need-to-know)
+- [PHP2Shell: Critical PHP Vulnerabilities Enable Unauthenticated Remote Code Execution – Arctic Wolf](https://arcticwolf.com/resources/blog/php2shell-critical-php-vulnerabilities-enable-unauthenticated-remote-code-execution/)
+- [Obstacles to Weaponizing PHP2Shell Likely Constrain Exploitation – CrowdStrike](https://www.crowdstrike.com/en-us/blog/obstacles-to-weaponizing-php2shell-likely-constrain-exploitation/)
+- [PHP2Shell – Wikipedia](https://en.wikipedia.org/wiki/PHP2Shell)
 
 
 
