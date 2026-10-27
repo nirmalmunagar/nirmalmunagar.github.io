@@ -8,7 +8,7 @@ categories: ["Cybersecurity"]
 tags: ["Threat Detection", "KQL", "Microsoft Defender", "Detection Engineering", "Blue Team"]
 ---
 
-Last couple of days I was working on how to detect PHP2Shell using Defender XDR Advanced Hunting, so here is my POV. I'll walk through a set of PHP webshell detections I built using Microsoft Defender for Endpoint (MDE) advanced hunting — no Sentinel involved. Before the queries, I want to cover some background on how PHP runs on a server, because that makes the detections much easier to follow — and I'll call out where **Windows and Linux differ**, since a lot of PHP hosting runs on Linux and most public writeups only cover Windows/IIS. If you only intrested in Query jump to ## Step 5.
+Last couple of days I was working on how to detect PHP2Shell using Defender XDR Advanced Hunting, so here is my POV. I'll walk through a set of PHP webshell detections I built using Microsoft Defender for Endpoint (MDE) advanced hunting — no Sentinel involved. Before the queries, I want to cover some background on how PHP runs on a server, because that makes the detections much easier to follow — and I'll call out where **Windows and Linux differ**, since a lot of PHP hosting runs on Linux and most public writeups only cover Windows/IIS.
 
 Let's get into it.
 
@@ -20,7 +20,7 @@ That moment is the weak point. A web-facing process (IIS, Apache, PHP-FPM) sudde
 
 All queries use standard Defender XDR Advanced Hunting tables (`DeviceProcessEvents`, `DeviceFileEvents`, `DeviceTvm*`, `DeviceInfo`).
 
-## Step 1: How PHP Actually Runs on a Server
+## How PHP Actually Runs on a Server
 
 The basic flow is: browser → web server → PHP → script runs → response. What matters for detection is **which process hosts PHP**, because that process name becomes the parent of anything the script launches.
 
@@ -39,11 +39,11 @@ Two things that trip people up when writing these detections:
 
 Ops I know Step 1 was boring 😅 but now let's focus more on what actually matters 🔥
 
-## Step 2: Windows vs Linux — Know the Differences
+## Windows vs Linux 
 
 This is the part that matters most for writing accurate detections — mix up a path or a process name between the two and your query silently misses everything.
 
-| | 🪟 Windows | 🐧 Linux |
+| |  Windows |  Linux |
 |---|---|---|
 | PHP binaries | `C:\php`, `C:\Program Files\PHP`, `C:\xampp\php` | `/usr/bin/php`, `/usr/sbin/php-fpm` |
 | Config | `php.ini` next to the PHP binaries | Per-SAPI: `/etc/php/<ver>/{cli,fpm,apache2}/php.ini` (Debian), `/etc/php.ini` + `/etc/php-fpm.d/www.conf` (RHEL) |
@@ -56,7 +56,7 @@ This is the part that matters most for writing accurate detections — mix up a 
 
 On Debian-style systems, `php.ini` differs per SAPI — hardening the CLI config does nothing for the FPM or Apache config. A mistake I've seen more than once during assessments.
 
-## Step 3: How a PHP Webshell Becomes a Shell
+## How a PHP Webshell Becomes a Shell
 
 A webshell is just a PHP file that passes attacker input to something dangerous — `system()`, `exec()`, `shell_exec()`, `passthru()`, `popen()`, `proc_open()`, or backticks, often hidden behind `eval()` or `base64_decode()` to dodge scanners.
 
@@ -68,19 +68,17 @@ That gives us three angles to detect on:
 2. **File** — a web or PHP process writing new PHP files (the upload step) or executables/scripts (the staging step)
 3. **Exposure** — where outdated or internet-facing PHP exists in the first place
 
-## Step 4: Before You Run These
+## Before You Run These
 
 - Replace the placeholder device names in `WebServers` with your own web servers — or match on a device tag/group instead.
 - Run each over 7–30 days first and tune before alerting. CMSs and frameworks legitimately write PHP files and sometimes call helper programs.
 - `php.exe`/`php` is deliberately **not** treated as a web parent in the shell detections, because CLI PHP under cron, Composer, and deployment scripts legitimately spawns shells. Hunt it separately if needed.
 
-## Step 5: The Queries
-
-### Baseline first (hunting, not an alert)
+## KQL Queries 
 
 Before alerting on anything, learn what your web processes normally launch. Anything in the output you can't explain is either a tuning exclusion or a finding.
 
-```kusto
+```sql
 let WebServers = dynamic(['web-srv-01', 'web-srv-02']);
 let WebProcs = dynamic(['w3wp.exe','php-cgi.exe','php-win.exe','httpd.exe','apache.exe','nginx.exe','apache2','httpd','nginx','php-cgi','lsphp','litespeed']);
 DeviceProcessEvents
@@ -95,13 +93,13 @@ DeviceProcessEvents
 
 Running this in my own environment, the top row was `w3wp.exe` → `php-cgi.exe` — exactly the Windows IIS + FastCGI chain from Step 1. That confirms telemetry is healthy, and tells you `php-cgi.exe` itself isn't the alert — it runs constantly and legitimately. What you're watching for is `php-cgi.exe` spawning something it shouldn't, like `cmd.exe` or `powershell.exe`, which is exactly what Detection 1 checks next.
 
-### Detection 1: Windows web/PHP process spawns a shell or LOLBin
+### Detection 1: Windows PHP process spawns a shell 
 
 This is the core signal on Windows. On IIS with PHP, the chain looks like `w3wp.exe` → `php-cgi.exe` → `cmd.exe`. This query catches the final step — a web/PHP process launching a shell, download utility, discovery tool, or other LOLBin — and also catches a web server spawning a suspicious child directly, with no `php-cgi.exe` in between.
 
 `DownloadIndicator` is a prioritisation hint, flagging command lines with URL strings or download-related terms. A `true` doesn't prove a download succeeded, and `false` doesn't mean the activity is safe.
 
-```kusto
+```sql
 let WebServers = dynamic(['win-web-01', 'win-web-02']);
 let WebParents = dynamic(['w3wp.exe','php-cgi.exe','php-win.exe','httpd.exe','apache.exe','nginx.exe']);
 let SuspiciousChildren = dynamic(['cmd.exe','powershell.exe','pwsh.exe','curl.exe','certutil.exe','bitsadmin.exe','whoami.exe','net.exe','net1.exe','nltest.exe','systeminfo.exe','mshta.exe','rundll32.exe','regsvr32.exe','wscript.exe','cscript.exe']);
@@ -129,7 +127,7 @@ DeviceProcessEvents
 
 The Linux counterpart to Detection 1. Apache, Nginx, LiteSpeed, or PHP-FPM shouldn't be starting `sh`, `bash`, `curl`, `wget`, or interpreters — PHP's `system()` commonly results in `sh -c <command>`, so the shell is often the first child process you'll see. Linux process names have no `.exe`, and PHP-FPM workers can be versioned (`php-fpm8.2`), which the query accounts for.
 
-```kusto
+```sql
 let WebServers = dynamic(['lnx-web-01', 'lnx-web-02']);
 let WebParents = dynamic(['apache2','httpd','nginx','php-cgi','lsphp','litespeed']);
 let SuspiciousChildren = dynamic(['sh','bash','dash','zsh','curl','wget','nc','ncat','socat','perl','whoami','id','uname']);
@@ -152,7 +150,7 @@ DeviceProcessEvents
 
 Catches the upload/drop step — a web process creating, modifying, or renaming a PHP-related file. Covers both Windows and Linux process names in one query.
 
-```kusto
+```sql
 let WebServers = dynamic(['web-srv-01', 'web-srv-02']);
 let WebProcs = dynamic(['w3wp.exe','php-cgi.exe','php-win.exe','httpd.exe','apache.exe','nginx.exe','apache2','httpd','nginx','php-cgi','lsphp','litespeed']);
 DeviceFileEvents
@@ -174,7 +172,7 @@ DeviceFileEvents
 
 Catches the staging step, once an attacker already has a shell and brings tooling. A web/PHP process creating or renaming an `.exe`, `.dll`, `.ps1`, `.sh`, `.py`, or similar is almost never legitimate, on either OS.
 
-```kusto
+```sql
 let WebServers = dynamic(['web-srv-01', 'web-srv-02']);
 let WebProcs = dynamic(['w3wp.exe','php-cgi.exe','php-win.exe','httpd.exe','apache.exe','nginx.exe','apache2','httpd','nginx','php-cgi','lsphp','litespeed']);
 DeviceFileEvents
@@ -195,7 +193,7 @@ DeviceFileEvents
 
 Shifts from behaviour to asset discovery — inventories PHP across the estate and flags internet-facing devices, so you know where the detections above matter most.
 
-```kusto
+```sql
 DeviceTvmSoftwareInventory
 | where SoftwareName contains 'php'
 | join kind=leftouter (
@@ -213,7 +211,7 @@ Internet-facing status here is a prioritisation factor, not proof a server is re
 
 Lists High/Critical CVEs against installed PHP, per device — pair with Exposure 1 to patch internet-facing servers first.
 
-```kusto
+```sql
 DeviceTvmSoftwareVulnerabilities
 | where SoftwareName contains 'php'
 | where VulnerabilitySeverityLevel in ('Critical', 'High')
