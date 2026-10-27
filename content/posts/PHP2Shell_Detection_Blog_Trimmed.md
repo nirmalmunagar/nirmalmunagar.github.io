@@ -8,7 +8,7 @@ categories: ["Cybersecurity"]
 tags: ["Threat Detection", "KQL", "Microsoft Defender", "Detection Engineering", "Blue Team"]
 ---
 
-Last couple of days I was working on how to detect PHP2Shell using Defender XDR Advanced Hunting, so here is my POV. I'll walk through a set of PHP webshell detections I built using Microsoft Defender for Endpoint (MDE) advanced hunting — no Sentinel involved. Before the queries, I want to cover some background on how PHP runs on a server, because that makes the detections much easier to follow — and I'll call out where **Windows and Linux differ**, since a lot of PHP hosting runs on Linux and most public writeups only cover Windows/IIS.
+Last couple of days I was working on how to detect PHP2Shell using Defender XDR Advanced Hunting, so here is my POV. I'll walk through a set of PHP webshell detections I built using Microsoft Defender for Endpoint (MDE) advanced hunting — no Sentinel involved. Before the queries, I want to cover some background on how PHP runs on a server, because that makes the detections much easier to follow — and I'll call out where **Windows and Linux differ**, since a lot of PHP hosting runs on Linux and most public writeups only cover Windows/IIS. If you only intrested in Query jump to ## Step 5.
 
 Let's get into it.
 
