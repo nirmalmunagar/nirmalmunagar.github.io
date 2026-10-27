@@ -67,10 +67,10 @@ DeviceProcessEvents
 
 I use this query to see which child processes web/PHP processes normally launch over the last 30 days. `Executions` shows how often each relationship appears, while `FirstSeen` and `LastSeen` show when it was observed. I would investigate relationships I cannot explain, then pivot to the raw `DeviceProcessEvents` to review the command line, account and individual events. This is a hunting query, not an alert by itself.
 
-![Baseline query result showing w3wp.exe spawning php-cgi.exe](/images/step5.png)
+
 
 <p align="center">
-  <img src="/images/step5.png" alt="Baseline query results" width="800">
+  <img src="/images/step5.png" alt="Baseline query result showing w3wp.exe spawning php-cgi.exe">
 </p>
 
 
