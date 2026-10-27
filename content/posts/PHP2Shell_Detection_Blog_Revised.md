@@ -245,6 +245,7 @@ If the internet-facing value is empty, I would check whether a matching `DeviceI
 **Limitations:** Inventory depends on Defender's discovery and reporting. A software name containing `php` may not capture every deployment or bundled runtime, and the internet-facing flag should be validated against your actual network exposure and asset records.
 
 ### Find high and critical PHP vulnerabilities(Not detection rule but hunting query)
+
 This query looks for PHP entries in Defender Vulnerability Management's software-vulnerability data and retains findings rated `High` or `Critical`. It then groups the results by device, operating system, software name, and version, counting distinct CVEs and collecting up to 20 CVE IDs for each group.
 
 
