@@ -63,7 +63,7 @@ DeviceProcessEvents
 | order by Executions desc
 ```
 
-#### How I use the baseline
+#### How I used the baseline
 
 I use this query to see which child processes web/PHP processes normally launch over the last 30 days. `Executions` shows how often each relationship appears, while `FirstSeen` and `LastSeen` show when it was observed. I would investigate relationships I cannot explain, then pivot to the raw `DeviceProcessEvents` to review the command line, account and individual events. This is a hunting query, not an alert by itself.
 
@@ -112,7 +112,7 @@ The query first limits results to the specified Windows web servers. It then loo
 
 One limitation: this query checks the immediate initiating process. It will not automatically match every step of a longer chain such as `w3wp.exe` → `php-cgi.exe` → `cmd.exe`; it can match the final step when `php-cgi.exe` is the process that launches `cmd.exe`.
 
-#### How to Deal with
+
 
 I would start by reviewing `InitiatingProcessCommandLine` and `ProcessCommandLine` to understand what launched the child process and what command it ran. I would then inspect the process tree to confirm whether that relationship is expected for the application or server.
 
@@ -120,7 +120,7 @@ Next, I would check `InitiatingProcessAccountName` and `AccountName`, including 
 
 **Tuning:** Baseline normal behaviour first. Exclude known maintenance activity only with narrow conditions such as the expected parent process plus a specific command line or path. Avoid excluding an entire parent process, such as `w3wp.exe` or `php-cgi.exe`, because that could hide the behaviour this detection is intended to find.
 
-**Limitations:** This is a process-based hunting query, not a detection for a particular PHP CVE. It may miss activity involving unlisted parent or child processes, renamed binaries, or webshells that read files or access data without spawning a child process. Combine it with web-server logs, WAF telemetry, file-write detections and vulnerability management for broader coverage.
+This is a process-based hunting query, not a detection for a particular PHP CVE. It may miss activity involving unlisted parent or child processes, renamed binaries, or webshells that read files or access data without spawning a child process. Combine it with web-server logs, WAF telemetry, file-write detections and vulnerability management for broader coverage.
 
 ---
 
@@ -152,7 +152,7 @@ The query looks for Linux web/PHP processes launching shells, download utilities
 
 `DownloadIndicator` highlights command lines containing URLs, `curl ` or `wget `. It helps prioritise results but does not prove that a download succeeded.
 
-#### How to Deal with
+
 
 I would review the parent and child command lines, the service account, and the process tree to understand why the web/PHP process launched the child. I would then check nearby file and network events. On Linux, I would pay particular attention to unexpected shells, reverse-connection utilities such as `nc`, `ncat` or `socat`, reconnaissance commands, and unexpected interpreter execution.
 
@@ -184,7 +184,7 @@ DeviceFileEvents
 
 The query uses `DeviceFileEvents` to find PHP-related files created, modified or renamed by a web/PHP process. The extension filter includes `.php`, `.php` followed by one digit, `.phtml` and `.phar`. `UserWritablePath` highlights paths containing terms such as `uploads`, `images`, `media`, `tmp` or `temp`. This is only a rough clue: it does not prove that the directory is writable or that the file is malicious.
 
-**How to Deal with:** I would first check `FolderPath`, `FileName` and `ActionType`, then review the initiating process, its command line and the account that wrote the file. I would check whether the file is expected for the application and look for related web requests or suspicious process execution around the same time.
+I would first check `FolderPath`, `FileName` and `ActionType`, then review the initiating process, its command line and the account that wrote the file. I would check whether the file is expected for the application and look for related web requests or suspicious process execution around the same time.
 
 I would prioritise rows where `UserWritablePath` is `true`, especially if the file appears in a user-uploaded content directory. I would not assume that every PHP file in such a directory is executable; I would confirm the web-server configuration and application behaviour.
 
@@ -236,7 +236,7 @@ DeviceTvmSoftwareInventory
 | project DeviceName, OSPlatform, SoftwareName, SoftwareVersion, IsInternetFacing
 | order by IsInternetFacing desc, DeviceName asc
 ```
-Thanks to Priyank for guiding in this query...
+Thanks to Priyank for guidance in this query...
 
 
 I would use `SoftwareName` and `SoftwareVersion` to identify the PHP installations Defender reports. I would then check `IsInternetFacing` to help prioritise which devices to review first.
@@ -246,7 +246,6 @@ If the internet-facing value is empty, I would check whether a matching `DeviceI
 **Limitations:** Inventory depends on Defender's discovery and reporting. A software name containing `php` may not capture every deployment or bundled runtime, and the internet-facing flag should be validated against your actual network exposure and asset records.
 
 ### Find high and critical PHP vulnerabilities(Not detection rule but hunting query)
-
 This query looks for PHP entries in Defender Vulnerability Management's software-vulnerability data and retains findings rated `High` or `Critical`. It then groups the results by device, operating system, software name, and version, counting distinct CVEs and collecting up to 20 CVE IDs for each group.
 
 
@@ -282,7 +281,7 @@ I would compare these results with first hunting query and prioritise internet-f
 
 A web-facing process starting a shell, writing PHP into a folder it shouldn't, or dropping executables is a high-signal pattern — and Defender for Endpoint gives you that telemetry on both Windows and Linux. Baseline first, tune narrowly, and alert on the rest.
 
-Thanks for reading!
+
 
 I'm sharing these queries as a practical starting point for detection engineering, not as a plug-and-play rule for every environment. Please test them in a lab, validate the telemetry available in your Defender environment, and tune against normal application behaviour before creating production alerts.
 
