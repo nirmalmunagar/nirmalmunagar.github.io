@@ -63,7 +63,6 @@ DeviceProcessEvents
 | order by Executions desc
 ```
 
-#### How I used the baseline
 
 I use this query to see which child processes web/PHP processes normally launch over the last 30 days. `Executions` shows how often each relationship appears, while `FirstSeen` and `LastSeen` show when it was observed. I would investigate relationships I cannot explain, then pivot to the raw `DeviceProcessEvents` to review the command line, account and individual events. This is a hunting query, not an alert by itself.
 
